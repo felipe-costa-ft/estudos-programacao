@@ -6,7 +6,7 @@ body {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-h1 {
+.topicos {
     padding: 10px;
     background-image: url(../img/sobre-background.jpg);
 }
