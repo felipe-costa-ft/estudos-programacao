@@ -1,3 +1,13 @@
+body {
+    margin-left: auto;
+    margin-right: auto;
+    width: 940px;
+    
+    color: #333333;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+
+}
+
 header {
     position: relative;
 }
@@ -60,6 +70,21 @@ header {
     width: 170px;
 }
 
+.busca button {
+    /* adicioando imagem*/
+    background-image: url(../img/busca.png);
+    background-repeat: no-repeat;
+    border: none;
+
+    /* tamanho da imagem */
+    width: 20px;
+    height: 20px;
+
+    /* imagem replacement */
+    text-indent: -9999px;
+
+}
+
 .busca h2,
 .busca form,
 .menu-departamentos h2 {
@@ -87,12 +112,85 @@ header {
     margin-top: 10px;
 }
 
-body {
-    margin-left: auto;
-    margin-right: auto;
-    width: 940px;
-    
-    color: #333333;
-    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+.painel {
+    margin:  10px 0;
+    padding: 10px;
+    width: 445px;
+}
 
+.painel h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    margin-bottom: 10px;
+}
+
+.painel a {
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.painel li {
+    display: inline-block;
+    vertical-align: top;
+    width: 140px;
+
+    margin: 2px;
+    padding-bottom: 10px;
+}
+
+.novidades {
+    float: left;
+    background-color: #F5DCDC;
+}
+
+.mais-vendidos {
+    float: right;
+    background-color: #DCDCF5;
+}
+
+footer {
+    background-image: url(../img/fundo-rodape.png);
+    clear: both;
+    padding: 20px;
+}
+
+footer .container {
+    position: relative;
+}
+
+.social {
+    position: absolute;
+    top: 12px;
+    right: 40px;
+}
+
+.social a {
+    /* tamanho da imagem */
+    height: 32px;
+    width: 32px;
+
+    /*Image replacement*/
+    display: block;
+    text-indent: -9999px;
+}
+
+.social li {
+    float: left;
+    margin-left: 25px;
+}
+
+.social a[href*="facebook.com"] {
+    background-image: url(../img/facebook.png);
+}
+
+.social a[href*="twitter.com"] {
+    background-image: url(../img/twitter.png);
+}
+
+.social a[href*="plus.google.com"] {
+    background-image: url(../img/googleplus.png);
 }
