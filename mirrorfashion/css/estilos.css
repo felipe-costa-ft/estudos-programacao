@@ -41,6 +41,14 @@ header {
     right: 0;
 }
 
+.menu-opcoes a:hover {
+    color: #007DC6;
+}
+
+.menu-opcoes a:active {
+    color: #867DC6;
+}
+
 .menu-opcoes ul{
     font-size: 15px;
 }
@@ -97,6 +105,23 @@ header {
     padding: 5px 10px;
 }
 
+.menu-departamentos li ul {
+    display: none;
+}
+
+.menu-departamentos li:hover ul {
+    display: block;
+}
+
+.menu-departamentos ul ul li {
+    background-color: #DCDCDC;
+}
+
+.menu-departamentos li li a::before {
+    content: '\272A';
+    padding-right: 3px;
+}
+
 .menu-departamentos a {
     color: #333333;
     text-decoration: none;
@@ -124,6 +149,12 @@ header {
     text-transform: uppercase;
 
     margin-bottom: 10px;
+}
+
+.painel h2::before {
+    content: '\2756';
+    padding-right: 5px;
+    opacity: 0.4;
 }
 
 .painel a {
