@@ -253,6 +253,7 @@ footer .container {
     background-image: url(../img/googleplus.png);
 }
 
+
 @media (max-width: 939px) {
 
     .container {
@@ -302,6 +303,7 @@ footer .container {
 
 }
 
+
 @media (min-width: 480px) {
 
     header h1 {
@@ -332,10 +334,10 @@ footer .container {
     .sacola {
         display: block;
     }
-
+    /*
     .painel li {
         width: 15%;
-    }
+    }*/
 
     .busca,
     .menu-departamentos {
