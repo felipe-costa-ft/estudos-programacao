@@ -10,6 +10,7 @@ public:
     void setCourseName(string name);  // função que configura o nome do curso
     string getCourseName(); // função que obtém o nome do curso
     void displayMessage(); // função que exibe mensagem de boas-vindas
+    void determineClassAverage(); // calcula a média das notas inseridas pelo usuário
     
 private:
     string courseName; //Nome do curso para esse GradeBook
