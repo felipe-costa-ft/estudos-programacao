@@ -2,6 +2,10 @@
 using std::cout;
 using std::cin;
 using std::endl;
+using std::fixed; // assegura que o ponto de fração decimal seja exibido
+
+#include <iomanip> //manipuladores de fluxo parametrizados
+using std::setprecision; // configura a precisão de saída numérica
 
 #include "GradeBook.h" // inclui a definição de classe GradeBook
 
@@ -43,26 +47,40 @@ void GradeBook::determineClassAverage() {
     int total; // soma das notas inseridas pelo usuário
     int gradeCounter; // número da nota a ser inserida a seguir
     int grade; // valor da nota inserida pelo usuário
-    int average; // média das notas
+    double average; // número com ponto de fração decimal para média
     
     // fase de inicialização
     total = 0; // inicializa o total
-    gradeCounter = 1; // inicializa o contador de loops
+    gradeCounter = 0; // inicializa o contador de loops
     
     // fase de processamento
+    // solicita e lê a nota do usuário
+    cout << "Enter grade or -1 to quit: ";
+    cin >> grade; // insere nota ou valor de sentinela
     
-    while(gradeCounter <= 10) { // faz o loop 10 vezes
+    // faz um loop até ler o valor de sentinela inserido pelo usuário
+    while(grade != -1) { // enquanto a nota não é -1
         
-        cout << "Enter Grade: "; // solicita entrada
-        cin >> grade; // insere a próxima nota
-        total = total + grade; // adiciona grade a total;
-        gradeCounter = gradeCounter + 1; // incrementa o contador por 1
+        total = total + grade; // adiciona grade a total
+        gradeCounter = gradeCounter+1; // incrementa contador
+        
+        // solicita entrada e lê a próxima nota fornecida pelo usuário
+        cout << "Enter grade or -1 to quit: ";
+        cin >> grade; // insere nota ou valor de sentinela
     } // fim do while
     
     // fase de término
-    average = total / 10; // divisão de inteiros prouz um resultado inteiro
-    
-    // exibe o total e a média das notas
-    cout << "\nTotal off all 10 grades is " << total << endl;
-    cout << "Class average is " << average << endl;
+    if(gradeCounter != 0) { // se usuário inseriu pelo menos uma nota...
+        // calcula a média de todas as notas inseridas
+        average = static_cast<double>(total)/gradeCounter;
+        
+        //exibe o total e a média (com dois dígitos de precisão)
+        cout << "\nTotal of all " << gradeCounter << " grades entered is "
+            << total << endl;
+        cout << "Class average is " << setprecision(2) << fixed << average
+            << endl;
+    } // fim do if
+    else { // nenhuma nota foi inserida, assim gera a saída da mensagem apropriada
+        cout << "No grades were entered" << endl;
+    }
 } // fim da função determineClassAverage
