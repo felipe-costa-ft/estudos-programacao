@@ -12,6 +12,7 @@ int main() {
     GradeBook myGradeBook("CS101 C++ Programming");
     
     myGradeBook.displayMessage(); // exibe a mensagem de boas-vindas
-    myGradeBook.determineClassAverage(); // calcula a média das 10 notas
+    myGradeBook.inputGrades(); // lê as notas fornecidas pelo usuário
+    myGradeBook.displayGradeReport(); // exibe relatório baseado em notas
     return 0; // indica terminação bem sucedida
 } // fim de main

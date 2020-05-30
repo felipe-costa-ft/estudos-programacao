@@ -12,6 +12,11 @@ using std::setprecision; // configura a precisão de saída numérica
 // o contrutor inicializa courseName com a string fornecida como argumento
 GradeBook::GradeBook(string name) {
     setCourseName(name); // valida e armazena courseName
+    aCount = 0; // inicializa a contagem de notas A como 0
+    bCount = 0; // inicializa a contagem de notas B como 0
+    cCount = 0; // inicializa a contagem de notas C como 0
+    dCount = 0; // inicializa a contagem de notas D como 0
+    fCount = 0; // inicializa a contagem de notas F como 0
 } // fim do construtor GradeBook
     
 // função que configura o nome do curso
@@ -84,3 +89,68 @@ void GradeBook::determineClassAverage() {
         cout << "No grades were entered" << endl;
     }
 } // fim da função determineClassAverage
+
+// insere número arbitrário de notas fornecidas pelo usuário; atualiza o contador de notas
+void GradeBook::inputGrades() {
+
+    int grade; // nota inserida pelo usuario
+
+    cout << "Enter the letter grades." << endl
+        << "Enter the EOF character to end input." << endl;
+
+    // faz loop até usuário digitar a sequencia de teclas de fim do arquivo
+    while ((grade = cin.get()) != EOF) {
+
+        // determina que nota foi inserida
+        switch (grade)
+        {
+        case 'A': // a nota era A maiúscula
+        case 'a': // ou a minúscula
+            aCount++; // incrementa aCount
+            break; // necessário para fechar switch
+
+        case 'B': // a nota era B maiúscula
+        case 'b': // ou b minúscula
+            bCount++; // incrementa bCount
+            break; // necessário para fechar switch
+
+        case 'C': // a nota era C maiúscula
+        case 'c': // ou c minúscula
+            cCount++; // incrementa cCount
+            break; // necessário para fechar switch
+
+        case 'D': // a nota era D maiúscula
+        case 'd': // ou d minúscula
+            dCount++; // incrementa dCount
+            break; // necessário para fechar switch
+
+        case 'F': // a nota era F maiúscula
+        case 'f': // ou f minúscula
+            fCount++; // incrementa fCount
+            break; // necessário para fechar switch
+
+        case '\n': // ignora nova linha,
+        case '\t': // ou f minúscula
+        case ' ': // e espaços em entrada
+            break; // fecha o switch
+        
+        default:
+            cout << "Incorrect letter grade grade entered."
+                << " Enter a new grade." << endl;
+            break; // opcional; sairá de switch de qualquer jeito
+        } // fim de switch
+    } // fim do while
+} // fim da função inputGrades
+
+// exibe um relatório baseado nas notas inseridas pelo usuário
+void GradeBook::displayGradeReport() {
+
+    // gera a saída de resumo de resultados
+    cout << "\n\nNumber of students who received each letter grade:"
+        << "\nA: " << aCount // exibe número de notas A
+        << "\nB: " << bCount // exibe número de notas B
+        << "\nC: " << cCount // exibe número de notas C
+        << "\nD: " << dCount // exibe número de notas D
+        << "\nF: " << fCount // exibe número de notas F
+        << endl;
+} // fim da função displayGradeReport
