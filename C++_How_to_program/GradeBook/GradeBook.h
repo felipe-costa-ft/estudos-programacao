@@ -11,14 +11,11 @@ public:
     string getCourseName(); // função que obtém o nome do curso
     void displayMessage(); // função que exibe mensagem de boas-vindas
     void determineClassAverage(); // calcula a média das notas inseridas pelo usuário
-    void inputGrades(); // insere número arbitrário de notas de usuário
+    void inputGrades(); // insere três notas fornecidas pelo usuário
     void displayGradeReport(); // exibe um relatório baseado nas notas
+    int maximum(int, int, int); // determina o máximo de 3 valores
     
 private:
     string courseName; // nome do curso para esse GradeBook
-    int aCount; // contagem de notas A
-    int bCount; // contagem de notas B
-    int cCount; // contagem de notas C
-    int dCount; // contagem de notas D
-    int fCount; // contagem de notas F
+    int studentMaximum; // máxima de três notas
 }; //fim da classe GradeBook

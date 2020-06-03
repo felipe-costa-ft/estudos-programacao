@@ -12,11 +12,7 @@ using std::setprecision; // configura a precisão de saída numérica
 // o contrutor inicializa courseName com a string fornecida como argumento
 GradeBook::GradeBook(string name) {
     setCourseName(name); // valida e armazena courseName
-    aCount = 0; // inicializa a contagem de notas A como 0
-    bCount = 0; // inicializa a contagem de notas B como 0
-    cCount = 0; // inicializa a contagem de notas C como 0
-    dCount = 0; // inicializa a contagem de notas D como 0
-    fCount = 0; // inicializa a contagem de notas F como 0
+    studentMaximum = 0; // esse valor será substituído pela nota máxima
 } // fim do construtor GradeBook
     
 // função que configura o nome do curso
@@ -90,67 +86,43 @@ void GradeBook::determineClassAverage() {
     }
 } // fim da função determineClassAverage
 
-// insere número arbitrário de notas fornecidas pelo usuário; atualiza o contador de notas
+// insere três notas a partir do usuário; determina a máxima
 void GradeBook::inputGrades() {
 
-    int grade; // nota inserida pelo usuario
+    int grade1; // primeira nota inserida pelo usuário
+    int grade2; // segunda nota inserida pelo usuário
+    int grade3; // terceira nota inserida pelo usuário
 
-    cout << "Enter the letter grades." << endl
-        << "Enter the EOF character to end input." << endl;
+    cout << "Enter three integer grades: ";
+    cin >> grade1 >> grade2 >> grade3;
 
-    // faz loop até usuário digitar a sequencia de teclas de fim do arquivo
-    while ((grade = cin.get()) != EOF) {
-
-        // determina que nota foi inserida
-        switch (grade)
-        {
-        case 'A': // a nota era A maiúscula
-        case 'a': // ou a minúscula
-            aCount++; // incrementa aCount
-            break; // necessário para fechar switch
-
-        case 'B': // a nota era B maiúscula
-        case 'b': // ou b minúscula
-            bCount++; // incrementa bCount
-            break; // necessário para fechar switch
-
-        case 'C': // a nota era C maiúscula
-        case 'c': // ou c minúscula
-            cCount++; // incrementa cCount
-            break; // necessário para fechar switch
-
-        case 'D': // a nota era D maiúscula
-        case 'd': // ou d minúscula
-            dCount++; // incrementa dCount
-            break; // necessário para fechar switch
-
-        case 'F': // a nota era F maiúscula
-        case 'f': // ou f minúscula
-            fCount++; // incrementa fCount
-            break; // necessário para fechar switch
-
-        case '\n': // ignora nova linha,
-        case '\t': // ou f minúscula
-        case ' ': // e espaços em entrada
-            break; // fecha o switch
-        
-        default:
-            cout << "Incorrect letter grade grade entered."
-                << " Enter a new grade." << endl;
-            break; // opcional; sairá de switch de qualquer jeito
-        } // fim de switch
-    } // fim do while
+    // armazena máxima no membro studentMaximum
+    studentMaximum = maximum(grade1, grade2, grade3);
+    
 } // fim da função inputGrades
+
+// retorna o máximo dos seus três parâmetros inteiros
+int GradeBook::maximum(int x, int y, int z) {
+
+    int maximumValue = x; // supõe que x é o maior valor inicial
+
+    // determina se y é  maior que maximumValue
+    if (y > maximumValue) {
+        maximumValue = y; // torna y o novo maximumValue
+    }
+
+    // determina se z é  maior que maximumValue
+    if (z > maximumValue) {
+        maximumValue = z; // torna z o novo maximumValue
+    }
+
+    return maximumValue;
+
+}
 
 // exibe um relatório baseado nas notas inseridas pelo usuário
 void GradeBook::displayGradeReport() {
 
-    // gera a saída de resumo de resultados
-    cout << "\n\nNumber of students who received each letter grade:"
-        << "\nA: " << aCount // exibe número de notas A
-        << "\nB: " << bCount // exibe número de notas B
-        << "\nC: " << cCount // exibe número de notas C
-        << "\nD: " << dCount // exibe número de notas D
-        << "\nF: " << fCount // exibe número de notas F
-        << endl;
+    // gera a saída da nota máxima entre as notas inseridas
+    cout << "Maximum of grades entered: " << studentMaximum << endl;
 } // fim da função displayGradeReport
