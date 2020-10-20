@@ -1,0 +1,12 @@
+{
+  "name": "javascript-oo",
+  "version": "1.0.0",
+  "description": "Projeto do curso Javascript OO do Alura",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
